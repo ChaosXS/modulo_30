@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { api } from '../services/api'
 import carrinhoReducer from './reducers/carrinho'
+import api from '../services/api'
 
 export const store = configureStore({
   reducer: {
@@ -11,4 +11,5 @@ export const store = configureStore({
     getDefaultMiddleware().concat(api.middleware)
 })
 
+// Exportamos RootState para o Header encontrar
 export type RootState = ReturnType<typeof store.getState>
