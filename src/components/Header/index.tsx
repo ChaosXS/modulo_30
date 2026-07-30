@@ -1,28 +1,25 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../store'
-import { Produto } from '../../App'
+import { setOpen } from '../../store/reducers/carrinho'
 import * as S from './styles'
 
-type Props = {
-  favoritos: Produto[]
-}
-
-const Header = ({ favoritos }: Props) => {
-  // Uso efetivo do useSelector conforme requisito [2]
+const Header = () => {
+  const dispatch = useDispatch()
   const itens = useSelector((state: RootState) => state.carrinho.itens)
 
-  const valorTotal = itens.reduce((acc, item) => acc + item.preco, 0)
-
   return (
-    <S.Header>
-      <h1>EBAC Sports</h1>
-      <div>
-        <span>{favoritos.length} favoritos</span>
-        <span>
-          {itens.length} itens, valor total: R$ {valorTotal.toFixed(2)}
-        </span>
+    <S.HeaderBar>
+      <div className="container">
+        <S.LinkRestaurantes href="/">Restaurantes</S.LinkRestaurantes>
+        <S.Logo
+          src="https://raw.githubusercontent.com/ChaosXS/modulo_30/main/src/assets/logo.png"
+          alt="efood"
+        />
+        <S.CartButton onClick={() => dispatch(setOpen(true))}>
+          {itens.length} produto(s) no carrinho
+        </S.CartButton>
       </div>
-    </S.Header>
+    </S.HeaderBar>
   )
 }
 

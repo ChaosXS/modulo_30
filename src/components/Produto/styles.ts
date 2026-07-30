@@ -1,88 +1,73 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+export const Produto = styled.div`
+  background-color: #fff;
+  color: #e66767;
+  border: 1px solid #e66767;
+  margin-bottom: 48px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-export const Produto = styled.div``
+  /* TAMANHO PADRÃO DA IMAGEM DO RESTAURANTE */
+  img {
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 
-export const Titulo = styled.h3`
-  min-height: 64px;
+  /* Se o seu projeto usa tags de Destaque ou Categoria na imagem */
+  .tag-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+  }
 `
 
-export const Capa = styled.div`
-  position: relative;
+export const Conteudo = styled.div`
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 
-  img {
-    display: block;
-    width: 100%;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 8px;
   }
-`
 
-export const Prices = styled.div`
-  margin: 16px 0;
-  color: #fff;
-
-  small {
-    font-size: 16px;
-    text-decoration: line-through;
-    margin-right: 8px;
-    opacity: 0.7;
-  }
-
-  strong {
+  h3 {
+    font-weight: bold;
     font-size: 18px;
   }
-`
 
-export const Tag = styled.span`
-  background-color: ${cores.corPrincipal};
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-`
-export const Plataformas = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 8px 0 0;
-
-  li {
-    background-color: ${cores.corPrincipal};
-    padding: 8px;
-    font-size: 10px;
-    white-space: nowrap;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    color: #fff;
+  span {
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-`
-export const BtnComprar = styled.button`
-  display: block;
-  width: 100%;
-  background-image: linear-gradient(
-    45deg,
-    ${cores.corPrincipal},
-    ${cores.corSecundaria}
-  );
-  font-weight: bold;
-  font-size: 16px;
-  padding: 12px 0;
-  text-transform: capitalize;
-  color: #eee;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-bottom: 8px;
 
-  &:hover {
-    background-image: linear-gradient(
-      -45deg,
-      ${cores.corPrincipal},
-      ${cores.corSecundaria}
-    );
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    background-color: #e66767;
+    color: #ffebd9;
+    text-decoration: none;
+    padding: 4px 8px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
   }
 `

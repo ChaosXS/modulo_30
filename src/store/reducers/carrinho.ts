@@ -1,28 +1,37 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Produto } from '../../App'
+import { Restaurante } from '../../services/api'
+
+// Definimos que o item é UM elemento do cardápio
+type PedidoItem = Restaurante['cardapio'][number]
 
 type CarrinhoState = {
-  itens: Produto[]
+  itens: PedidoItem[] // Agora é uma lista simples de itens
+  isOpen: boolean
 }
 
 const initialState: CarrinhoState = {
-  itens: []
+  itens: [],
+  isOpen: false
 }
 
 const carrinhoSlice = createSlice({
   name: 'carrinho',
   initialState,
   reducers: {
-    adicionar: (state, action: PayloadAction<Produto>) => {
-      const produto = action.payload
-      if (state.itens.find((p) => p.id === produto.id)) {
-        alert('Item já adicionado')
-      } else {
-        state.itens.push(produto)
-      }
+    adicionar: (state, action: PayloadAction<PedidoItem>) => {
+      state.itens.push(action.payload)
+    },
+    remover: (state, action: PayloadAction<number>) => {
+      state.itens = state.itens.filter((item) => item.id !== action.payload)
+    },
+    setOpen: (state, action: PayloadAction<boolean>) => {
+      state.isOpen = action.payload
+    },
+    limpar: (state) => {
+      state.itens = []
     }
   }
 })
 
-export const { adicionar } = carrinhoSlice.actions
+export const { adicionar, remover, setOpen, limpar } = carrinhoSlice.actions
 export default carrinhoSlice.reducer

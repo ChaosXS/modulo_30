@@ -1,34 +1,23 @@
-import { useDispatch } from 'react-redux'
-import { adicionar } from '../../store/reducers/carrinho'
-import { Produto as ProdutoType } from '../../App'
+import { Link } from 'react-router-dom'
+import { Restaurante } from '../../services/api'
 import * as S from './styles'
 
 type Props = {
-  produto: ProdutoType
-  favoritar: (produto: ProdutoType) => void
-  estaNosFavoritos: boolean
+  produto: Restaurante
 }
 
-const ProdutoComponent = ({ produto, favoritar, estaNosFavoritos }: Props) => {
-  const dispatch = useDispatch()
-
+const Produto = ({ produto }: Props) => {
   return (
     <S.Produto>
-      <S.Capa>
-        <img src={produto.imagem} alt={produto.nome} />
-      </S.Capa>
-      <S.Titulo>{produto.nome}</S.Titulo>
-      <S.Prices>
-        <strong>R$ {produto.preco.toFixed(2)}</strong>
-      </S.Prices>
-      <S.BtnComprar onClick={() => favoritar(produto)} type="button">
-        {estaNosFavoritos ? '- Remover favoritos' : '+ Adicionar favoritos'}
-      </S.BtnComprar>
-      <S.BtnComprar onClick={() => dispatch(adicionar(produto))} type="button">
-        Adicionar ao carrinho
-      </S.BtnComprar>
+      <img src={produto.capa} alt={produto.titulo} />
+      <div>
+        <h3>{produto.titulo}</h3>
+        <span>{produto.avaliacao} ⭐</span>
+      </div>
+      <p>{produto.descricao}</p>
+      <Link to={`/perfil/${produto.id}`}>Saiba mais</Link>
     </S.Produto>
   )
 }
 
-export default ProdutoComponent
+export default Produto

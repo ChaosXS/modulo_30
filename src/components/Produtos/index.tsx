@@ -1,26 +1,23 @@
-import { Produto as ProdutoType } from '../../App'
+import { Restaurante } from '../../services/api'
 import Produto from '../Produto'
 import * as S from './styles'
 
 type Props = {
-  produtos: ProdutoType[]
-  favoritos: ProdutoType[]
-  favoritar: (produto: ProdutoType) => void
+  produtos: Restaurante[]
 }
 
-const ProdutosComponent = ({ produtos, favoritos, favoritar }: Props) => {
+const ProdutosList = ({ produtos }: Props) => {
   return (
-    <S.Produtos>
-      {produtos.map((p) => (
-        <Produto
-          estaNosFavoritos={favoritos.some((f) => f.id === p.id)}
-          key={p.id}
-          produto={p}
-          favoritar={favoritar}
-        />
-      ))}
-    </S.Produtos>
+    <S.Container>
+      <S.List>
+        {produtos.map((restaurante) => (
+          <li key={restaurante.id}>
+            <Produto produto={restaurante} />
+          </li>
+        ))}
+      </S.List>
+    </S.Container>
   )
 }
 
-export default ProdutosComponent
+export default ProdutosList

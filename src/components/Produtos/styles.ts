@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
-export const Produtos = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 24px;
-  list-style: none;
-  padding: 0;
+export const Container = styled.section`
+  padding: 80px 0;
+`
 
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
-  }
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  row-gap: 48px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `
+
+// Mantendo exportação antiga caso algum outro arquivo a use para evitar novos erros
+export const Produtos = List

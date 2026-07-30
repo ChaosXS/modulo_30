@@ -1,45 +1,40 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Header = styled.header`
-  background-image: linear-gradient(
-    45deg,
-    ${cores.corPrincipal},
-    ${cores.corSecundaria}
-  );
-  margin: 80px 0;
-  padding: 16px 24px;
+export const HeaderBar = styled.header`
+  background-color: ${cores.bege};
+  padding: 40px 0;
   display: flex;
-  border-radius: 6px;
   align-items: center;
 
-  h1 {
-    font-size: 18px;
-    flex: 1;
-    font-style: italic;
-    color: ${cores.corFundo};
-  }
-
-  div {
+  .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    img {
-      width: 18px;
-      margin-right: 8px;
-      margin-left: 16px;
-    }
-
-    span {
-      color: ${cores.corFundo};
-    }
+    width: 100%;
   }
+`
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+export const LinkRestaurantes = styled.a`
+  color: ${cores.salmao};
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+`
 
-    div {
-      margin-top: 16px;
-    }
-  }
+export const Logo = styled.img`
+  width: 125px;
+  /* Garante que o logo fique no meio mesmo com textos de tamanhos diferentes nas pontas */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`
+
+export const CartButton = styled.button`
+  background: transparent;
+  border: none;
+  color: ${cores.salmao};
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
 `
