@@ -1,0 +1,14 @@
+# Projeto desenvolvido em React + TypeScript (Node.js)
+# As dependencias do projeto estao no arquivo package.json
+
+# Para instalar as dependencias do projeto:
+npm install
+
+# Para executar o projeto localmente:
+npm start
+
+# Dependencias principais do projeto:
+# - react
+# - react-dom
+# - @reduxjs/toolkit
+# - react-redux
