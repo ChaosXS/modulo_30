@@ -5,6 +5,7 @@ import { store } from './store'
 import Home from './pages/Home'
 import Perfil from './pages/Perfil'
 import Cart from './components/Cart'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/perfil/:id" element={<Perfil />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Provider>
   )

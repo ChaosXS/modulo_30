@@ -1,40 +1,42 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
-export const HeaderBar = styled.header`
-  background-color: ${cores.bege};
+export const HeaderContainer = styled.header`
+  background-image: url('https://raw.githubusercontent.com/JoaoVictorAngelo/eFood/0dfa9540e9102b20569206ffe15860a6912a6b81/src/assets/images/HeroHeader.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 40px 0;
-  display: flex;
-  align-items: center;
+  width: 100%;
 
   .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 `
 
-export const LinkRestaurantes = styled.a`
-  color: ${cores.salmao};
-  font-weight: bold;
-  font-size: 18px;
-  text-decoration: none;
+export const HeaderBar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  a,
+  span {
+    color: #e66767;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+  }
 `
 
-export const Logo = styled.img`
-  width: 125px;
-  /* Garante que o logo fique no meio mesmo com textos de tamanhos diferentes nas pontas */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-`
-
-export const CartButton = styled.button`
-  background: transparent;
-  border: none;
-  color: ${cores.salmao};
+export const Titulo = styled.h2`
   font-weight: bold;
-  font-size: 18px;
-  cursor: pointer;
+  font-size: 36px;
+  line-height: 42px;
+  color: #e66767;
+  max-width: 539px;
+  width: 100%;
+  margin-top: 138px;
+  text-align: center;
 `

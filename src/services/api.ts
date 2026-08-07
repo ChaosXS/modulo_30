@@ -14,12 +14,37 @@ export type Prato = CardapioItem
 export type Restaurante = {
   id: number
   titulo: string
-  destaque?: boolean
+  destacado?: boolean
   tipo: string
   avaliacao: number
   capa: string
   descricao: string
   cardapio: CardapioItem[]
+}
+
+export type PurchasePayload = {
+  products: { id: number; price: number }[]
+  delivery: {
+    receiver: string
+    address: {
+      description: string
+      city: string
+      zipCode: string
+      number: number
+      complement?: string
+    }
+  }
+  payment: {
+    card: {
+      name: string
+      number: string
+      code: number
+      expires: {
+        month: number
+        year: number
+      }
+    }
+  }
 }
 
 export const api = createApi({
@@ -33,8 +58,19 @@ export const api = createApi({
     }),
     getRestaurante: builder.query<Restaurante, string>({
       query: (id) => `restaurantes/${id}`
+    }),
+    purchase: builder.mutation<{ orderId: string }, PurchasePayload>({
+      query: (body) => ({
+        url: 'checkout',
+        method: 'POST',
+        body
+      })
     })
   })
 })
 
-export const { useGetRestaurantesQuery, useGetRestauranteQuery } = api
+export const {
+  useGetRestaurantesQuery,
+  useGetRestauranteQuery,
+  usePurchaseMutation
+} = api

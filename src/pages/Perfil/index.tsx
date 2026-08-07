@@ -5,6 +5,7 @@ import { adicionar, setOpen } from '../../store/reducers/carrinho'
 import { useGetRestaurantesQuery, Prato } from '../../services/api'
 
 import Header from '../../components/Header'
+import Banner from '../../components/Banner'
 import * as S from './styles'
 
 const Perfil = () => {
@@ -42,20 +43,13 @@ const Perfil = () => {
   return (
     <>
       <Header />
-      <div
-        style={{
-          backgroundColor: '#333',
-          color: '#fff',
-          padding: '32px 0',
-          textAlign: 'center',
-          marginBottom: '56px'
-        }}
-      >
-        <h2>{restaurante.titulo}</h2>
-        <p>{restaurante.tipo}</p>
-      </div>
+      <Banner
+        capa={restaurante.capa}
+        tipo={restaurante.tipo}
+        titulo={restaurante.titulo}
+      />
 
-      <div className="container">
+      <div className="container" style={{ marginTop: '56px' }}>
         <S.List>
           {restaurante.cardapio && restaurante.cardapio.length > 0 ? (
             restaurante.cardapio.map((prato: Prato) => (

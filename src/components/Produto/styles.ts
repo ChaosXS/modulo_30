@@ -4,27 +4,24 @@ export const Produto = styled.div`
   background-color: #fff;
   color: #e66767;
   border: 1px solid #e66767;
-  margin-bottom: 48px;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  /* TAMANHO PADRÃO DA IMAGEM DO RESTAURANTE */
   img {
     width: 100%;
     height: 217px;
     object-fit: cover;
   }
+`
 
-  /* Se o seu projeto usa tags de Destaque ou Categoria na imagem */
-  .tag-container {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    gap: 8px;
-  }
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
 `
 
 export const Conteudo = styled.div`
